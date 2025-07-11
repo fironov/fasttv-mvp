@@ -1,0 +1,12 @@
+[
+  {
+    "file": "intro.mp4",
+    "start": "00:00",
+    "duration": "00:01:00"
+  },
+  {
+    "file": "main.mp4",
+    "start": "00:01",
+    "duration": "00:05:00"
+  }
+]

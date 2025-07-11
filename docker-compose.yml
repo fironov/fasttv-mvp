@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  strapi:
+    image: strapi/strapi
+    ports:
+      - '1337:1337'
+    environment:
+      DATABASE_CLIENT: sqlite
+    volumes:
+      - ./strapi-app:/srv/app
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - '80:80'
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./hls:/usr/share/nginx/html/hls
+
+  ffmpeg:
+    image: jrottenberg/ffmpeg:4.4-alpine
+    volumes:
+      - ./videos:/videos
+      - ./hls:/hls
